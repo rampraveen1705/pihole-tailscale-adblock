@@ -4,6 +4,11 @@ Overview
 This project implements a DNS-based ad-blocking system using Pi-hole, with remote access enabled via Tailscale. It allows filtering ads and trackers across devices without requiring router-level access.
 
 Architecture
+
+![Architecture Diagram](architecture.png)
+
+Flow
+
 Laptop (Manual DNS: 192.168.1.9)
 ↓
 Pi-hole
@@ -16,16 +21,18 @@ Remote Access
 Laptop → Tailscale → Raspberry Pi
 
 Tech Stack
-Pi-hole (DNS filtering)
-Tailscale (VPN overlay network)
-Raspberry Pi (server)
-Linux
+
+* Pi-hole (DNS filtering)
+* Tailscale (VPN overlay network)
+* Raspberry Pi (server)
+* Linux
 
 Key Features
-DNS-level ad and tracker blocking
-Real-time query monitoring
-Remote access using Tailscale
-Manual DNS configuration without router access
+
+* DNS-level ad and tracker blocking
+* Real-time query monitoring
+* Remote access using Tailscale
+* Manual DNS configuration without router access
 
 Challenges and Solutions
 
@@ -38,25 +45,30 @@ Root cause: Double NAT and routing loops
 Solution: Connected Raspberry Pi and laptop to the same router
 
 Results
-Total Queries: 500+
-Ads Blocked: ~7–10%
-Stable and fast browsing experience
+
+* Total Queries: 500+
+* Ads Blocked: ~7–10%
+* Stable and fast browsing experience
 
 Limitations
-Cannot block YouTube ads
-DNS over HTTPS may bypass filtering
-Requires manual DNS configuration
+
+* Cannot block YouTube ads
+* DNS over HTTPS may bypass filtering
+* Requires manual DNS configuration
 
 Screenshots
+
 ![Pi-hole Dashboard](screenshot.png)
 
 Learnings
-DNS fundamentals and routing
-VPN-based networking using Tailscale
-Debugging real-world network issues
-System design under constraints
+
+* DNS fundamentals and routing
+* VPN-based networking using Tailscale
+* Debugging real-world network issues
+* System design under constraints
 
 Future Improvements
-Add Grafana dashboard
-Dockerize the setup
-Automate blocklist updates
+
+* Add Grafana dashboard
+* Dockerize the setup
+* Automate blocklist updates
